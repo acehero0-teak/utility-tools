@@ -1,2 +1,5 @@
 User-agent: *
-Disallow: /
+Disallow: /$
+Disallow: /index.html
+Allow: /
+Sitemap: https://tools.netgreatest.com/sitemap.xml
