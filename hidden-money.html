@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#1e40af">
+  <meta name="description" content="여신금융협회 카드포인트 통합 조회·계좌입금, 내보험 찾아줌, 정부24 미환급금 공식 바로가기와 인스타 카드뉴스 핵심 정리를 한곳에서 확인하세요.">
+  <meta name="robots" content="index, follow">
+  <title>숨은 돈·카드포인트 원스톱 조회 & 테크머니 가이드 - 현장·생활 스마트 계산기</title>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4632047255308170" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg: #f1f5f9;
+      --card: #ffffff;
+      --primary: #1d4ed8;
+      --primary-light: #eff6ff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --ok: #15803d;
+      --warn: #b45309;
+      --danger: #b91c1c;
+    }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding-bottom: 48px;
+      line-height: 1.5;
+    }
+    header {
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      color: #fff;
+      padding: 14px 16px;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      box-shadow: 0 2px 8px rgba(15,23,42,0.12);
+    }
+    .hdr-inner { max-width: 820px; margin: 0 auto; }
+    .hdr-top { display:flex; justify-content:space-between; align-items:center; gap:8px; }
+    .hdr-title { font-size:17px; font-weight:700; margin:0; color:#fff; text-decoration:none; }
+    .badge { font-size:11px; background:rgba(255,255,255,0.18); padding:4px 8px; border-radius:999px; white-space:nowrap; }
+    .hdr-sub { font-size:12px; opacity:0.88; margin-top:4px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:6px; }
+    .hdr-home { color:#dbeafe; text-decoration:none; font-weight:700; }
+    main { max-width: 820px; margin: 0 auto; padding: 12px; }
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      padding: 16px;
+      margin-bottom: 14px;
+      box-shadow: 0 1px 4px rgba(15,23,42,0.06);
+      border: 1px solid var(--border);
+    }
+    .card h1 { font-size: 19px; margin: 0 0 6px; color: #0f172a; }
+    .card h2 { font-size: 16px; margin: 0 0 12px; color: #1e293b; }
+    .cat-pill { display:inline-block; font-size:11px; font-weight:700; color:var(--primary); background:var(--primary-light); padding:3px 8px; border-radius:6px; margin-bottom:8px; }
+    .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .grid3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; }
+    @media (max-width: 520px) {
+      .grid3 { grid-template-columns: 1fr 1fr; }
+    }
+    label { display: block; font-size: 12px; font-weight: 600; color: #475569; margin-bottom: 4px; }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px 11px;
+      border: 1px solid #cbd5e1;
+      border-radius: 9px;
+      font-size: 15px;
+      background: #fff;
+      color: var(--text);
+    }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+    }
+    .btn-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .btn {
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 9px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .btn.sec { background: #e2e8f0; color: #1e293b; }
+    .btn.sm { padding: 7px 11px; font-size: 13px; }
+    .result-box {
+      margin-top: 12px;
+      background: var(--primary-light);
+      border: 1px solid #bfdbfe;
+      border-radius: 10px;
+      padding: 12px;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+    .result-big { font-size: 18px; font-weight: 800; color: #1e3a8a; }
+    .muted { font-size: 12px; color: var(--muted); }
+    .stat-row { display:grid; grid-template-columns: repeat(4, 1fr); gap:6px; margin-top:10px; }
+    .stat-item { background:#f8fafc; border:1px solid var(--border); border-radius:8px; padding:8px; text-align:center; }
+    .stat-val { font-size:16px; font-weight:800; color:#0f172a; }
+    .stat-lbl { font-size:11px; color:var(--muted); }
+    .labor-row { display:grid; grid-template-columns: 1.4fr 1fr 1fr 0.8fr auto; gap:6px; margin-bottom:8px; align-items:center; }
+    @media (max-width: 540px) {
+      .labor-row { grid-template-columns: 1fr 1fr; }
+    }
+    .hub-sec-title { font-size:15px; font-weight:800; margin:16px 2px 8px; color:#1e293b; }
+    .hub-grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap:10px; }
+    .hub-card {
+      display:block; text-decoration:none; background:#fff; border:1px solid var(--border);
+      border-radius:12px; padding:14px; color:var(--text);
+      box-shadow:0 1px 3px rgba(15,23,42,0.05); transition: transform .12s, border-color .12s;
+    }
+    .hub-card:hover { transform: translateY(-2px); border-color: var(--primary); }
+    .hub-icon { font-size:22px; margin-bottom:6px; display:block; }
+    .hub-name { font-size:15px; font-weight:700; margin-bottom:4px; }
+    .hub-desc { font-size:12px; color:var(--muted); }
+    .ad-slot-preview {
+      border: 2px dashed #94a3b8; background: #f8fafc; border-radius: 12px;
+      padding: 14px; text-align: center; margin-bottom: 14px;
+    }
+    .ad-tag { font-size: 12px; font-weight: 700; color: #334155; background: #e2e8f0; padding: 3px 8px; border-radius: 6px; }
+    .ad-desc { font-size: 12px; color: #64748b; margin-top: 6px; }
+    .ad-slot-live { margin-bottom: 14px; text-align: center; min-height: 90px; }
+    .banner-wrap { margin-bottom: 14px; }
+    .banner-head { font-size: 13px; font-weight: 700; color: #475569; margin: 0 0 8px 2px; }
+    .banner-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px; }
+    .promo-banner {
+      display: block; text-decoration: none; color: #fff; border-radius: 12px; padding: 14px;
+      box-shadow: 0 3px 10px rgba(15,23,42,0.12);
+    }
+    .p-badge { display:inline-block; font-size:11px; font-weight:700; background:rgba(255,255,255,0.22); padding:2px 8px; border-radius:999px; margin-bottom:6px; }
+    .p-title { font-size:14px; font-weight:800; margin-bottom:4px; }
+    .p-desc { font-size:12px; opacity:0.9; }
+    .rel-row { display:grid; grid-template-columns: 1fr 1fr; gap:8px; margin-top:10px; }
+    @media (max-width: 480px) { .rel-row { grid-template-columns: 1fr; } }
+    .rel-link {
+      display:block; text-decoration:none; background:#f8fafc; border:1px solid var(--border);
+      padding:10px 12px; border-radius:10px; color:#1e293b; font-size:13px; font-weight:700;
+    }
+    .faq-item { border-top:1px solid var(--border); padding-top:10px; margin-top:10px; }
+    .faq-q { font-size:14px; font-weight:700; margin-bottom:4px; color:#0f172a; }
+    .faq-a { font-size:13px; color:#475569; margin:0; }
+    .disclaimer-inline { margin-top:10px; padding-top:8px; border-top:1px dashed #cbd5e1; font-size:11.5px; color:#64748b; line-height:1.5; }
+    .disclaimer-footer {
+      max-width: 820px; margin: 0 auto 10px; padding: 12px 14px;
+      background: #e2e8f0; border-radius: 10px; font-size: 11.5px; color: #475569; line-height: 1.55;
+    }
+    footer { text-align:center; padding:12px 12px 18px; font-size:12px; color:var(--muted); }
+    footer a { color:var(--muted); margin:0 6px; text-decoration:none; }
+    #lockScreen {
+      position: fixed; inset: 0; background: #0f172a; z-index: 9999;
+      display: none; align-items: center; justify-content: center; padding: 20px;
+    }
+    .lock-card {
+      background: #fff; width: 100%; max-width: 360px; border-radius: 16px; padding: 24px; text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+    }
+    .lock-card h3 { margin: 0 0 8px; font-size: 19px; }
+    .lock-err { color: #dc2626; font-size: 13px; margin-top: 8px; min-height: 18px; }
+    </style>
+</head>
+<body>
+  <div id="lockScreen">
+    <div class="lock-card">
+      <h3>🔒 비공개 도구함</h3>
+      <p class="muted" style="margin-bottom:16px;">대표님 전용 비공개 모드입니다.<br>접속 비밀번호를 입력해 주세요.</p>
+      <input type="password" id="pinInput" inputmode="numeric" placeholder="비밀번호 입력" style="text-align:center; font-size:18px; letter-spacing:4px;">
+      <button class="btn" style="width:100%; margin-top:12px;" onclick="unlockSite()">잠금 해제</button>
+      <div id="lockErr" class="lock-err"></div>
+    </div>
+  </div>
+
+  <header>
+    <div class="hdr-inner">
+      <div class="hdr-top">
+        <a class="hdr-title" href="/">🛠️ 현장·생활 스마트 계산기</a>
+        <span class="badge">🌐 공개 운영 중</span>
+      </div>
+      <div class="hdr-sub">
+        <span>자동 검증일: 2026-11-18 (2026-11-18 13:04)</span>
+        
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="card">
+  <span class="cat-pill">생활·금융 계산</span>
+  <h1>💳 숨은 돈·카드포인트 원스톱 조회 & 테크머니 가이드</h1>
+  <p class="muted" style="margin:0 0 14px;">여신금융협회 카드포인트 통합 조회·계좌입금, 내보험 찾아줌, 정부24 미환급금 공식 바로가기와 인스타 카드뉴스 핵심 정리를 한곳에서 확인하세요.</p>
+  
+<div style="margin-bottom:14px;">
+  <div style="font-weight:800; font-size:14px; color:#1e3a8a; margin-bottom:8px;">🔗 공식 숨은 돈·보안 조회 바로가기</div>
+  <div style="display:flex; flex-wrap:wrap; gap:8px;">
+    <a class="btn sm" href="https://www.cardpoint.or.kr/" target="_blank" rel="noopener noreferrer">💳 여신금융협회 카드포인트 현금입금</a>
+    <a class="btn sm" style="background:#0f766e;" href="https://cont.insure.or.kr/" target="_blank" rel="noopener noreferrer">🏥 내보험 찾아줌 (숨은 보험금)</a>
+    <a class="btn sm" style="background:#1e40af;" href="https://www.gov.kr/" target="_blank" rel="noopener noreferrer">🏛️ 정부24 미환급금·보조금24</a>
+    <a class="btn sm" style="background:#4338ca;" href="https://www.smartchoice.or.kr/" target="_blank" rel="noopener noreferrer">📱 스마트초이스 통신비 환급</a>
+    <a class="btn sm" style="background:#b91c1c;" href="https://www.msafer.or.kr/" target="_blank" rel="noopener noreferrer">🚨 엠세이퍼 명의도용 방지</a>
+  </div>
+</div>
+<hr style="border:none; border-top:1px solid #e2e8f0; margin:14px 0;">
+<div style="font-weight:800; font-size:14px; color:#0f172a; margin-bottom:8px;">🧮 내 예상 숨은 돈 합산 계산기</div>
+<div class="grid2">
+  <div><label>카드포인트 예상액 (원)</label><input type="number" id="hmCard" value="35000" min="0" oninput="calcHiddenMoney()"></div>
+  <div><label>세금·공공 미환급금 (원)</label><input type="number" id="hmTax" value="42000" min="0" oninput="calcHiddenMoney()"></div>
+  <div><label>숨은·휴면 보험금 (원)</label><input type="number" id="hmIns" value="150000" min="0" oninput="calcHiddenMoney()"></div>
+  <div><label>통신비·보증금 환급 (원)</label><input type="number" id="hmTel" value="12000" min="0" oninput="calcHiddenMoney()"></div>
+</div>
+<div class="result-box" id="hmRes"></div>
+<hr style="border:none; border-top:1px solid #e2e8f0; margin:16px 0;">
+<div style="font-weight:800; font-size:15px; color:#0f172a; margin-bottom:8px;">📌 테크머니 카드뉴스 핵심 가이드 모음 (상시 업데이트)</div>
+<input type="text" id="cgSearch" placeholder="키워드 검색 (예: 카드포인트, AI, 윈도우, 구글, 카톡)" oninput="renderCardGuides()" style="margin-bottom:10px;">
+<div id="cgList"></div>
+  <div class="disclaimer-inline">※ 본 계산 결과는 일반 표준 기준에 따른 단순 참고용 추정치이며, 실제 시공·계약·세무 신고 및 금융 거래의 법적·재무적 근거로 사용할 수 없습니다.</div>
+</div>
+<div class="ad-slot-live">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-4632047255308170"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+
+<div class="banner-wrap"><div class="banner-head">🔗 함께 쓰면 좋은 추천 연결 배너</div><div class="banner-grid"><a class="promo-banner" href="https://grant.netgreatest.com" target="_blank" rel="noopener noreferrer" style="background:#1e3a8a;">
+  <span class="p-badge">정부지원금</span>
+  <div class="p-title">내 조건에 맞는 정책자금·지원금 한눈에 찾기</div>
+  <div class="p-desc">소상공인·사업자·개인 지원금 공고 매일 자동 업데이트</div>
+</a><a class="promo-banner" href="/vat.html" style="background:#0f766e;">
+  <span class="p-badge">추천도구</span>
+  <div class="p-title">부가세(10%) · 원천징수(3.3%) 1초 역산 계산</div>
+  <div class="p-desc">견적서 작성부터 일당 정산까지 모바일에서 바로 확인</div>
+</a><a class="promo-banner" href="/image-resize.html" style="background:#4338ca;">
+  <span class="p-badge">인기도구</span>
+  <div class="p-title">모바일 사진 용량 줄이기 (서버 저장 0%)</div>
+  <div class="p-desc">100KB·300KB 제출용 사진 크기 변환을 스마트폰에서 즉시 처리</div>
+</a></div></div>
+<div class="card">
+  <h2>💡 자주 묻는 질문 &amp; 활용 팁</h2>
+  
+<div class="faq-item"><div class="faq-q">Q. 여신금융협회 카드포인트는 수수료 없이 바로 입금되나요?</div><p class="faq-a">네. 여신금융협회 공식 통합조회 사이트에서는 1포인트=1원 비율로 수수료 없이 본인 명의 계좌로 즉시 이체할 수 있으며, 5년이 지나면 소멸되므로 주기적으로 확인하는 것이 좋습니다.</p></div>
+  <div class="rel-row">
+    <a class="rel-link" href="/vat.html">🧾 부가세(10%) 역산기 →</a>
+    <a class="rel-link" href="/loan-interest.html">🏦 대출이자·예적금 계산기 →</a>
+  </div>
+</div>
+<div class="ad-slot-live">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-4632047255308170"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+</div>
+  </main>
+
+  <div class="disclaimer-footer">
+    <strong>⚖️ 법적 면책 고지:</strong> 본 사이트에서 제공하는 모든 계산 결과·견적 추정치·세율·자재량·진단 정보는 사용자 편의를 위한 <strong>단순 참고용 자료</strong>이며, 실제 현장 여건·자재 손실률·세법 개정·금융기관 약관에 따라 실제와 다를 수 있습니다. 본 결과를 실제 계약·시공·세무 신고·금융 거래의 법적·재무적 근거로 사용할 수 없으며, 최종 판단 및 활용에 따른 결과에 대해 본 사이트는 법적 책임을 지지 않습니다.
+  </div>
+
+  <footer>
+    <span>© 2026 현장·생활 스마트 계산기</span> ·
+    <a href="/about.html">서비스 안내</a> ·
+    <a href="/privacy.html">개인정보처리방침</a>
+  </footer>
+
+  <script>
+    const CFG = {"site_title":"현장·생활 스마트 계산기","domain":"tools.netgreatest.com","naejip_blog_url":"https://acehero1492.blogspot.com","naejip_blog_name":"내집처럼 하자보수","adsense_pub_id":"ca-pub-4632047255308170","ga4_id":"G-QFWRWR2ZB8","private_mode":false,"hub_private":true,"access_pin":"8484","last_verified_date":"2026-11-18","banners":[{"badge":"정부지원금","title":"내 조건에 맞는 정책자금·지원금 한눈에 찾기","desc":"소상공인·사업자·개인 지원금 공고 매일 자동 업데이트","url":"https://grant.netgreatest.com","bg":"#1e3a8a"},{"badge":"추천도구","title":"부가세(10%) · 원천징수(3.3%) 1초 역산 계산","desc":"견적서 작성부터 일당 정산까지 모바일에서 바로 확인","url":"/vat.html","bg":"#0f766e"},{"badge":"인기도구","title":"모바일 사진 용량 줄이기 (서버 저장 0%)","desc":"100KB·300KB 제출용 사진 크기 변환을 스마트폰에서 즉시 처리","url":"/image-resize.html","bg":"#4338ca"},{"badge":"숨은돈·꿀팁","title":"카드포인트 현금화 · 테크머니 카드뉴스 모음","desc":"여신금융협회·내보험 찾아줌·정부24 바로가기 및 최신 카드뉴스 정리","url":"/hidden-money.html","bg":"#0369a1"}],"standards":{"vat_rate":0.1,"withholding_income_tax":0.03,"withholding_local_tax":0.003,"pyeong_sqm_exact":3.305785123966942,"paint_coverage_m2_per_l":{"water_interior":10.0,"water_exterior":8.0,"oil_enamel":9.0,"urethane_waterproof_primer":5.0,"urethane_waterproof_mid_kg_m2":3.2,"urethane_waterproof_top":6.0,"epoxy_primer":6.5,"epoxy_mid_kg_m2":1.5,"epoxy_top":6.0},"opening_deduction_m2":{"door":1.89,"window":1.5},"daily_worker_tax_deduction_threshold":150000,"insurance_rates":{"national_pension":0.045,"health_insurance":0.03545,"long_term_care_ratio":0.1295,"employment_insurance":0.009},"interest_tax_rate":0.154}};
+    const PAGE_LOCKED = false;
+    const fmt = (n) => Math.round(n).toLocaleString('ko-KR');
+
+    (function initLock() {
+      if (PAGE_LOCKED && sessionStorage.getItem('ut_unlocked') !== '1') {
+        document.getElementById('lockScreen').style.display = 'flex';
+      }
+    })();
+
+    function unlockSite() {
+      const val = document.getElementById('pinInput').value.trim();
+      if (val === CFG.access_pin) {
+        sessionStorage.setItem('ut_unlocked', '1');
+        document.getElementById('lockScreen').style.display = 'none';
+      } else {
+        document.getElementById('lockErr').textContent = '비밀번호가 일치하지 않습니다.';
+      }
+    }
+    document.getElementById('pinInput').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') unlockSite();
+    });
+
+    
+const CARD_GUIDES = [
+  {
+    "id": "dyn_1117_003",
+    "badge": "디지털 보안 | 계정 보호",
+    "title": "개인정보 유출 차단! 내 개인정보 유출 막는 구글 계정 필수 설정 3",
+    "cards": [
+      {
+        "title": "비밀번호 유출 진단",
+        "desc": "구글 계정 관리의 비밀번호 진단 페이지에서 내 비번이 해킹 데이터에 포함되었는지 즉시 점검하세요."
+      },
+      {
+        "title": "타사 앱 연결 해제",
+        "desc": "이전에 간편 로그인했던 불필요한 웹사이트나 앱의 구글 계정 연동 권한을 찾아 즉시 삭제합니다."
+      },
+      {
+        "title": "2단계 인증 설정",
+        "desc": "스마트폰 보안 인증이나 OTP를 등록해 비밀번호가 뚫려도 2차 로그인 차단을 걸어두세요."
+      }
+    ],
+    "tip": "최소 3개월에 한 번씩 타사 액세스 권한을 정리하는 것이 좋습니다."
+  },
+  {
+    "id": "dyn_1117_002",
+    "badge": "PC 꿀팁 | 생산성 극대화",
+    "title": "칼퇴 만드는 단축키! PC 업무 속도 3배 올려주는 윈도우 숨은 기능 3",
+    "cards": [
+      {
+        "title": "복사 기록 관리",
+        "desc": "방금 복사한 텍스트와 이미지 여러 개를 한 번에 불러와 원하는 곳에 골라서 붙여넣을 수 있습니다."
+      },
+      {
+        "title": "캡처 사진 글자 추출",
+        "desc": "화면을 캡처한 뒤 캡처 도구 내 텍스트 추출 버튼을 누르면 이미지 속 글자만 즉시 복사됩니다."
+      },
+      {
+        "title": "가상 데스크톱 분리",
+        "desc": "화면을 여러 개로 분리해 문서 작업용, 참고 자료용 창을 깔끔하게 나눠서 사용할 수 있습니다."
+      }
+    ],
+    "tip": "윈도우10 이상 버전부터 기본으로 제공되는 숨은 기능입니다."
+  },
+  {
+    "id": "dyn_1117_001",
+    "badge": "AI 실무 꿀팁 | 칼퇴 치트키",
+    "title": "PPT·문서 작성 5분 컷! 작업 시간 10배 줄이는 무료 AI 웹 도구 3선",
+    "cards": [
+      {
+        "title": "PPT 자동 생성 AI",
+        "desc": "주제어만 입력하면 슬라이드 레이아웃과 텍스트, 이미지까지 3분 만에 완성해 줍니다."
+      },
+      {
+        "title": "긴 PDF 문서 요약",
+        "desc": "수십 페이지 분량의 논문이나 보고서 파일만 올리면 핵심 요약과 질문 답변을 즉시 제공합니다."
+      },
+      {
+        "title": "실시간 출처 검색",
+        "desc": "최신 정보와 정확한 출처 웹사이트까지 한눈에 정리해 줘서 자료 조사 시간을 대폭 줄여줍니다."
+      }
+    ],
+    "tip": "무료 플랜의 월간 생성 포인트를 미리 확인하고 활용하세요."
+  },
+  {
+    "id": "post_01",
+    "badge": "생활 재테크 기록",
+    "title": "주말에 딱 3분만 써서 내 계좌로 돌려받는 법",
+    "cards": [
+      {
+        "title": "정부24 (미환급금)",
+        "desc": "국세·지방세·보증금 등 14종 한 번에 조회"
+      },
+      {
+        "title": "스마트초이스",
+        "desc": "통신사 옮기면서 못 돌려받은 요금·보증금"
+      },
+      {
+        "title": "국민건강보험",
+        "desc": "병원비 본인부담상한제 초과분 및 과오납"
+      }
+    ],
+    "tip": "수수료 요구·문자 링크 클릭은 무조건 거르기"
+  },
+  {
+    "id": "post_02",
+    "badge": "1분 스마트폰 꿀팁 | 필수 체크",
+    "title": "카톡 90%가 모르는 역대급 숨은 꿀기능 3가지",
+    "cards": [
+      {
+        "title": "단톡방 [조용히 나가기]",
+        "desc": "알림 없이 몰래 퇴장 가능! 설정 ➔ 실험실 ➔ [조용히 나가기] 활성화 후 나가기 창에서 체크하면 아무도 모르게 퇴장 완료"
+      },
+      {
+        "title": "카톡 용량 10GB 확보 (캐시 삭제)",
+        "desc": "사진/대화는 그대로 유지하고 찌꺼기만 삭제! 설정 ➔ 기타 ➔ [저장공간 관리] ➔ [캐시 데이터 삭제]로 스마트폰 용량 즉시 확보"
+      },
+      {
+        "title": "사생활 보호 [조용히 채팅방]",
+        "desc": "잘 안 보거나 숨기고 싶은 단톡방을 길게 눌러 [조용히 보관함]으로 이동! 알림과 안 읽은 숫자 배지가 깔끔하게 사라집니다"
+      }
+    ],
+    "tip": "꿀팁: 스마트폰 용량 부족할 때 캐시 삭제는 필수!"
+  },
+  {
+    "id": "post_03",
+    "badge": "교통비 절약 | 정부 지원금",
+    "title": "최대 53% 현금 환급! K-패스 vs 기후동행카드 완벽 비교",
+    "cards": [
+      {
+        "title": "K-패스 (전국 어디서나 적립)",
+        "desc": "일반 20%, 청년 30%, 저소득층 최대 53% 매월 현금 환급! 지하철·시내버스뿐만 아니라 광역버스, GTX까지 전국 어디서나 적용"
+      },
+      {
+        "title": "기후동행카드 (서울 무제한 정기권)",
+        "desc": "월 62,000원에 서울 시내 지하철·버스를 무제한 탑승! 월 대중교통 이용액이 8만 원을 넘는 서울 시내 출퇴근자에게 가장 유리"
+      },
+      {
+        "title": "나에게 딱 맞는 선택 기준",
+        "desc": "경기/인천 환승이나 광역버스·신분당선·GTX를 탄다면 무조건 [K-패스]! 서울 시내 단거리 위주로 매일 이동한다면 [기후동행카드]가 정답"
+      }
+    ],
+    "tip": "꿀팁: 카드 한 장만 바꿔도 연간 최대 40만원 이상 절약!"
+  },
+  {
+    "id": "post_04",
+    "badge": "정부지원금 | 1분 맞춤 조회",
+    "title": "1인 평균 100만원 지원! 2026 보조금24 숨은 혜택 찾기",
+    "cards": [
+      {
+        "title": "정부24 [보조금24] 원클릭 조회",
+        "desc": "중앙부처, 지자체, 공공기관이 제공하는 1만여 개 지원금 중 내가 받을 수 있는 혜택만 주민등록 기준으로 맞춤 자동 선별"
+      },
+      {
+        "title": "가족 구성원 혜택 일괄 확인",
+        "desc": "가족 동의 한 번으로 따로 사는 부모님의 기초연금·의료비 지원, 미성년 자녀의 바우처까지 한 화면에서 빠짐없이 확인 가능"
+      },
+      {
+        "title": "신청 알림 서비스 [국민비서]",
+        "desc": "새로운 지원금 사업이 개설되거나 기존 혜택 신청 기한이 다가오면 카카오톡으로 자동 알림을 발송하여 놓치지 않게 지원"
+      }
+    ],
+    "tip": "꿀팁: 신청하지 않은 보조금은 국가가 먼저 챙겨주지 않습니다!"
+  },
+  {
+    "id": "post_05",
+    "badge": "스마트폰 관리 | 배터리 최적화",
+    "title": "배터리 수명 2배 연장! 스마트폰 배터리 지키는 필수 설정 3",
+    "cards": [
+      {
+        "title": "배터리 80% 보호 기능 켜기",
+        "desc": "설정 ➔ 배터리 ➔ [배터리 보호(최대 80~85% 충전)] 활성화! 100% 과충전을 막아 2년 지나도 배터리 효율 90% 이상 유지"
+      },
+      {
+        "title": "백그라운드 위치·새로고침 차단",
+        "desc": "쓰지도 않는데 배터리를 갉아먹는 SNS/쇼핑 앱의 [백그라운드 앱 새로고침] 및 [항상 허용 위치 권한]을 '앱 사용 중에만'으로 변경"
+      },
+      {
+        "title": "다크 모드(Dark Mode) 상시 적용",
+        "desc": "OLED 화면은 검은색을 표현할 때 소자가 완전히 꺼집니다. 다크 모드 설정만으로 디스플레이 전력 소모량을 최대 30% 절감"
+      }
+    ],
+    "tip": "꿀팁: 0% 방전 후 급속 충전하는 습관이 배터리 사망의 주원인!"
+  },
+  {
+    "id": "post_06",
+    "badge": "직장인 절세 | 13월의 월급",
+    "title": "환급금 50만원 UP! 연말정산 미리보기 3대 황금공식",
+    "cards": [
+      {
+        "title": "신용카드 ➔ 체크카드 전환점",
+        "desc": "총급여 25%까지는 포인트 혜택 좋은 신용카드 사용! 25% 초과 시점부터는 공제율 30%인 체크카드와 현금영수증으로 결제 수단 전환"
+      },
+      {
+        "title": "연금저축 & IRP 계좌 한도 채우기",
+        "desc": "연 최대 900만 원 납입 시 소득에 따라 13.2%~16.5% 세액공제! 연말에 일시 납입해도 1년 치 세액공제 혜택을 100% 동일하게 수령"
+      },
+      {
+        "title": "놓치기 쉬운 월세액 세액공제",
+        "desc": "총급여 8천만 원 이하 무주택 세대주라면 전입신고 필수! 집주인 동의 없이도 임대차계약서와 계좌이체 영수증만으로 최대 127만원 환급"
+      }
+    ],
+    "tip": "꿀팁: 12월 31일 지나면 해당 연도 공제 혜택은 영구 소멸!"
+  },
+  {
+    "id": "post_07",
+    "badge": "사기 방지 | 개인정보 보호",
+    "title": "명의도용 원천 차단! 내 정보 털림 방지 3대 무료 서비스",
+    "cards": [
+      {
+        "title": "엠세이퍼 (명의도용방지서비스)",
+        "desc": "내 주민번호로 신규 휴대폰, 인터넷, 알뜰폰이 무단 개통되지 못하도록 [가입제한 서비스]를 무료 등록하여 스미싱 대포폰 사기 예방"
+      },
+      {
+        "title": "털린 내 정보 찾기 (개인정보보호위)",
+        "desc": "내가 쓰는 아이디와 비밀번호가 다크웹이나 해커 포럼에 유출되었는지 무료 조회하고 즉시 비밀번호 변경 및 계정 잠금 처리"
+      },
+      {
+        "title": "e프라이버시 클린서비스",
+        "desc": "지난 5년간 본인인증으로 가입했던 모든 웹사이트 내역을 한눈에 확인하고, 안 쓰는 사이트는 클릭 한 번으로 일괄 탈퇴 처리"
+      }
+    ],
+    "tip": "꿀팁: 엠세이퍼 가입제한 등록은 3분이면 끝납니다!"
+  },
+  {
+    "id": "post_08",
+    "badge": "생활비 절약 | 숨은 포인트",
+    "title": "즉시 현금 계좌 입금! 여신금융협회 카드포인트 통합 입금",
+    "cards": [
+      {
+        "title": "모든 카드사 포인트 1초 조회",
+        "desc": "여신금융협회 [카드포인트 통합조회시스템]에서 신용·체크카드에 흩어져 잠자고 있는 잔여 포인트를 1원 단위까지 일괄 조회"
+      },
+      {
+        "title": "내 통장으로 즉시 현금 입금",
+        "desc": "조회된 포인트를 쇼핑몰 결제에 억지로 쓸 필요 없이 [계좌입금] 버튼 한 번으로 내 주거래 은행 계좌로 즉시 현금 이체"
+      },
+      {
+        "title": "포인트 소멸 시효 5년 주의",
+        "desc": "카드 포인트는 적립 후 5년이 지나면 카드사 수익으로 자동 소멸! 최소 6개월에 한 번씩 조회하여 전액 현금화 필수"
+      }
+    ],
+    "tip": "꿀팁: 본인 명의 계좌만 입력하면 주말에도 5분 내 입금!"
+  },
+  {
+    "id": "post_09",
+    "badge": "스마트폰 청소 | 스팸 차단",
+    "title": "광고 스팸 99% 차단! 스팸 문자 박멸하는 차단 키워드 5",
+    "cards": [
+      {
+        "title": "메시지 앱 [문구 차단] 등록",
+        "desc": "메시지 설정 ➔ [스팸 및 차단 번호 관리] ➔ [차단 문구]에 광고 문자에 필수로 들어가는 핵심 단어들을 등록하여 자동 걸러내기"
+      },
+      {
+        "title": "필수 등록 5대 차단 키워드",
+        "desc": "[광고], (광고), 무료거부, 수신거부, 텔레그램 — 합법/불법 광고 문자에 의무 표기되는 단어만 넣어도 스팸의 90% 이상 차단"
+      },
+      {
+        "title": "후후 / T전화 AI 스팸 필터",
+        "desc": "악성 보이스피싱 및 대출 권유 번호를 금융감독원 DB와 실시간 대조하여 수신 화면에 '위험 전화' 붉은색 경고 표시"
+      }
+    ],
+    "tip": "꿀팁: [무료거부] 4글자만 차단 문구에 넣어도 광고 문자가 사라집니다!"
+  },
+  {
+    "id": "post_10",
+    "badge": "보험금 절약 | 숨은 보험금",
+    "title": "1인 평균 115만원! 내보험 찾아줌 숨은 보험금 찾기",
+    "cards": [
+      {
+        "title": "생명·손해보험협회 통합 조회",
+        "desc": "[내보험 찾아줌(ContSystem)]에서 내가 가입한 모든 보험 계약 내역과 지급되지 않고 묶여있는 만기·중도·휴면 보험금을 일괄 조회"
+      },
+      {
+        "title": "청구하지 않은 중도·배당금",
+        "desc": "보험 계약 만기 전 지급 사유가 발생했으나 소비자가 잊고 찾아가지 않은 축하금, 건강검진비, 배당금 등이 이자 없이 방치되는 것 방지"
+      },
+      {
+        "title": "온라인 즉시 간편 청구",
+        "desc": "조회된 숨은 보험금이 1,000만 원 이하일 경우 별도 서류 제출 없이 온라인에서 본인인증 후 신청하면 당일 또는 익일 즉시 입금"
+      }
+    ],
+    "tip": "꿀팁: 휴면보험금은 이자가 붙지 않으므로 즉시 찾아야 이득!"
+  }
+];
+function calcHiddenMoney() {
+  const cp = Number(document.getElementById('hmCard').value) || 0;
+  const tx = Number(document.getElementById('hmTax').value) || 0;
+  const ins = Number(document.getElementById('hmIns').value) || 0;
+  const tel = Number(document.getElementById('hmTel').value) || 0;
+  const total = cp + tx + ins + tel;
+  document.getElementById('hmRes').innerHTML =
+    `<span class="result-big">예상 회수 가능 금액: ${fmt(total)}원</span><br>` +
+    `• 카드포인트 ${fmt(cp)}원 + 미환급금 ${fmt(tx)}원 + 숨은보험금 ${fmt(ins)}원 + 통신비 ${fmt(tel)}원`;
+}
+function renderCardGuides() {
+  const q = (document.getElementById('cgSearch').value || '').trim().toLowerCase();
+  const box = document.getElementById('cgList');
+  const filtered = CARD_GUIDES.filter(g => !q || (g.title + ' ' + g.badge + ' ' + (g.cards||[]).map(c=>c.title+' '+c.desc).join(' ')).toLowerCase().includes(q));
+  if (!filtered.length) { box.innerHTML = '<p class="muted">검색 결과가 없습니다.</p>'; return; }
+  box.innerHTML = filtered.map(g => `
+    <div style="border:1px solid #e2e8f0; border-radius:10px; padding:12px; margin-bottom:10px; background:#f8fafc;">
+      <span class="cat-pill" style="margin-bottom:4px;">${g.badge}</span>
+      <div style="font-weight:800; font-size:15px; color:#0f172a; margin-bottom:6px;">${g.title}</div>
+      <ul style="margin:0 0 6px 18px; padding:0; font-size:13px; color:#334155;">
+        ${(g.cards||[]).map(c => `<li><strong>${c.title}:</strong> ${c.desc}</li>`).join('')}
+      </ul>
+      ${g.tip ? `<div style="font-size:12px; color:#1d4ed8; font-weight:700;">💡 ${g.tip}</div>` : ''}
+    </div>
+  `).join('');
+}
+calcHiddenMoney();
+renderCardGuides();
+
+  </script>
+</body>
+</html>
